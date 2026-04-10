@@ -7,9 +7,9 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        tap_hold: tap_hold {
+        mt: mt {
             compatible = "zmk,behavior-hold-tap";
-            label = "TAP_HOLD";
+            label = "mt";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -18,6 +18,33 @@
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        punto_coma: punto_coma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_COMA";
+            bindings = <&kp ES_COMMA>, <&kp ES_SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        punto_doble: punto_doble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_DOBLE";
+            bindings = <&kp ES_PERIOD>, <&kp ES_COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        lineal_dash: lineal_dash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LINEAL_DASH";
+            bindings = <&kp ES_MINUS>, <&kp ES_UNDERSCORE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -25,28 +52,28 @@
 
         General {
             bindings = <
-&kp TAB     &kp Q                 &kp W                 &kp E                     &kp R                   &kp T        &kp Y      &kp U                   &kp I                     &kp O                 &kp P                          &kp ES_GRAVE
-&kp ESCAPE  &tap_hold LEFT_WIN A  &tap_hold LEFT_ALT S  &tap_hold LEFT_CONTROL D  &tap_hold LEFT_SHIFT F  &kp G        &kp H      &tap_hold LEFT_SHIFT J  &tap_hold LEFT_CONTROL K  &tap_hold LEFT_ALT L  &tap_hold LEFT_WIN ES_N_TILDE  &kp ENTER
-&none       &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N      &kp M                   &none                     &none                 &none                          &tap_hold DELETE BACKSPACE
-                                                        &none                     &mo 1                   &kp SPACE    &kp SPACE  &mo 2                   &none
+&kp TAB     &kp Q           &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U             &kp I               &kp O           &kp P                    &kp ES_GRAVE
+&kp ESCAPE  &mt LEFT_WIN A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt LEFT_SHIFT J  &mt LEFT_CONTROL K  &mt LEFT_ALT L  &mt LEFT_WIN ES_N_TILDE  &kp ENTER
+&none       &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N      &kp M             &punto_coma         &punto_doble           &lineal_dash                    &mt DELETE BACKSPACE
+                                            &none               &mo 1             &kp SPACE    &kp SPACE  &mo 2             &none
             >;
         };
 
         Numeros {
             bindings = <
-&kp TAB     &kp ES_LESS_THAN  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS  &kp ES_BACKSLASH    &kp ES_SLASH  &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &kp ES_GREATER_THAN  &kp BACKSPACE
-&kp ESCAPE  &kp LEFT_WIN      &kp LEFT_ALT         &kp LCTRL          &kp LEFT_SHIFT           &none               &none         &none                     &none               &none                 &none                &kp ENTER
-&none       &none             &none                &none              &none                    &none               &none         &none                     &none               &none                 &none                &none
+&kp TAB     &none             &none                &none              &none                    &none               &none         &none                     &none               &none                 &none                &none
+&kp ESCAPE  &kp ES_LESS_THAN  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS  &kp ES_BACKSLASH    &kp ES_SLASH  &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &kp ES_GREATER_THAN  &kp ENTER
+&none       &none             &none                &none              &none                    &none               &none         &none                     &none               &none                 &none                &mt DELETE BACKSPACE
                                                    &none              &trans                   &kp SPACE           &kp SPACE     &trans                    &none
             >;
         };
 
         Movimiento {
             bindings = <
-&none  &tap_hold F1 NUMBER_1  &tap_hold F2 NUMBER_2  &tap_hold F3 NUMBER_3  &tap_hold F4 NUMBER_4  &tap_hold F5 N5    &tap_hold F6 NUMBER_6  &tap_hold F7 N7  &tap_hold F8 N8   &tap_hold F9 N9  &tap_hold F10 N0  &none
-&none  &kp LEFT_WIN           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &none              &none                  &kp LEFT_SHIFT   &kp LEFT_CONTROL  &kp LEFT_ALT     &kp LEFT_WIN      &none
-&none  &none                  &none                  &none                  &none                  &none              &none                  &none            &none             &none            &none             &none
-                                                     &none                  &none                  &none              &none                  &none            &none
+&none  &mt F1 NUMBER_1  &mt F2 NUMBER_2  &mt F3 NUMBER_3   &mt F4 NUMBER_4  &mt F5 N5    &mt F6 NUMBER_6  &mt F7 N7       &mt F8 N8         &mt F9 N9     &mt F10 N0    &none
+&none  &kp LEFT_WIN     &kp LEFT_ALT     &kp LEFT_CONTROL  &kp LEFT_SHIFT   &none        &none            &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &none
+&none  &none            &none            &none             &none            &none        &none            &none           &none             &none         &none         &none
+                                         &none             &none            &none        &none            &none           &none
             >;
         };
 
