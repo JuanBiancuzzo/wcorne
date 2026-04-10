@@ -72,7 +72,7 @@
             bindings = <
 &kp TAB       &kp Q           &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U             &kp I               &kp O           &kp P                    &kp ES_GRAVE
 &kp ESCAPE    &mt LEFT_WIN A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt LEFT_SHIFT J  &mt LEFT_CONTROL K  &mt LEFT_ALT L  &mt LEFT_WIN ES_N_TILDE  &kp ENTER
-&mayor_menor  &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N      &kp M             &punto_coma         &punto_doble    &lineal_dash             &mt DELETE BACKSPACE
+&none  &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N      &kp M             &none         &none    &none             &mt DELETE BACKSPACE
                                               &none               &mo 1             &kp SPACE    &kp SPACE  &mo 2             &none
             >;
         };
