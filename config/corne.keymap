@@ -18,6 +18,51 @@
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        punto_coma: punto_coma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_COMA";
+            bindings = <&kp ES_COMMA>, <&kp ES_SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        punto_doble: punto_doble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PUNTO_DOBLE";
+            bindings = <&kp ES_PERIOD>, <&kp ES_COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        lineal_dash: lineal_dash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LINEAL_DASH";
+            bindings = <&kp ES_MINUS>, <&kp ES_UNDERSCORE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        comillas: comillas {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMILLAS";
+            bindings = <&kp ES_DOUBLE_QUOTES>, <&kp ES_SINGLE_QUOTE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mayor_menor: mayor_menor {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MAYOR_MENOR";
+            bindings = <&kp ES_LT>, <&kp ES_GT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -25,19 +70,19 @@
 
         General {
             bindings = <
-&kp TAB       &kp Q           &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U             &kp I               &kp O           &kp P                    &kp ES_GRAVE
-&kp ESCAPE    &mt LEFT_WIN A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt LEFT_SHIFT J  &mt LEFT_CONTROL K  &mt LEFT_ALT L  &mt LEFT_WIN ES_N_TILDE  &kp ENTER
-&none  &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N      &kp M             &none         &none    &none             &mt DELETE BACKSPACE
-                                              &none               &mo 1             &kp SPACE    &kp SPACE  &mo 2             &none
+&kp TAB       &kp Q                 &kp W                 &kp E                     &kp R                   &kp T        &kp Y      &kp U                   &kp I                     &kp O                 &kp P                          &kp ES_ACUTE
+&kp ESCAPE    &tap_hold LEFT_WIN A  &tap_hold LEFT_ALT S  &tap_hold LEFT_CONTROL D  &tap_hold LEFT_SHIFT F  &kp G        &kp H      &tap_hold LEFT_SHIFT J  &tap_hold LEFT_CONTROL K  &tap_hold LEFT_ALT L  &tap_hold LEFT_WIN ES_N_TILDE  &kp ENTER
+&mayor_menor  &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N      &kp M                   &punto_coma               &punto_doble          &lineal_dash                   &tap_hold DELETE BACKSPACE
+                                                          &none                     &mo 1                   &kp SPACE    &kp SPACE  &mo 2                   &none
             >;
         };
 
         Numeros {
             bindings = <
-&kp TAB     &none  &none                &none              &none                    &none               &none         &none                     &none               &none                 &none      &none
-&kp ESCAPE  &none  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS  &kp ES_BACKSLASH    &kp ES_SLASH  &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &comillas  &kp ENTER
-&none       &none  &none                &none              &none                    &none               &none         &none                     &none               &none                 &none      &mt DELETE BACKSPACE
-                                        &none              &trans                   &kp SPACE           &kp SPACE     &trans                    &none
+&none  &kp ES_PIPE          &kp ES_CARET         &kp ES_ASTRK       &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL        &kp ES_PLUS           &kp ES_DEG            &none
+&none  &kp ES_SINGLE_QUOTE  &kp ES_LEFT_BRACKET  &kp ES_LEFT_BRACE  &kp ES_LEFT_PARENTHESIS   &kp ES_BACKSLASH               &kp ES_SLASH        &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACE  &kp ES_RIGHT_BRACKET  &kp ES_DOUBLE_QUOTES  &kp ES_GRAVE
+&none  &none                &none                &none              &kp ES_AMPERSAND          &kp ES_DOLLAR                  &kp ES_PERCENT      &kp ES_HASH               &none               &none                 &none                 &none
+                                                 &none              &trans                    &kp SPACE                      &kp SPACE           &trans                    &none
             >;
         };
 
