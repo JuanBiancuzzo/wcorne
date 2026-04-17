@@ -79,9 +79,9 @@
 
         Simbolos {
             bindings = <
-&none       &kp ES_CARET         &kp ES_ASTRK       &kp ES_PIPE          &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL          &kp ES_PLUS         &kp ES_DEG            &kp ES_GRAVE
+&none       &kp ES_CARET         &kp ES_ASTRK       &kp ES_PIPE          &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL          &kp ES_PLUS         &kp ES_AT             &kp ES_GRAVE
 &kp ESCAPE  &kp ES_SINGLE_QUOTE  &kp ES_LEFT_BRACE  &kp ES_LEFT_BRACKET  &kp ES_LEFT_PARENTHESIS   &kp ES_BACKSLASH               &kp ES_SLASH        &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACKET  &kp ES_RIGHT_BRACE  &kp ES_DOUBLE_QUOTES  &kp ENTER
-&none       &none                &none              &kp CAPSLOCK         &kp ES_AT                 &kp ES_DOLLAR                  &kp ES_PERCENT      &kp ES_HASH               &kp ES_AMPS           &none               &none                 &tap_hold DELETE BACKSPACE
+&none       &none                &none              &kp CAPSLOCK         &kp ES_DOLLAR             &kp ES_DEG                     &kp ES_PERCENT      &kp ES_HASH               &kp ES_AMPS           &kp ES_TILDE        &none                 &tap_hold DELETE BACKSPACE
                                                     &none                &trans                    &kp SPACE                      &kp SPACE           &mo 3                     &none
             >;
         };
