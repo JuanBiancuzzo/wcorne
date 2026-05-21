@@ -22,7 +22,7 @@
         punto_coma: punto_coma {
             compatible = "zmk,behavior-mod-morph";
             label = "PUNTO_COMA";
-            bindings = <&kp ES_COMMA>, <&kp ES_SEMICOLON>;
+            bindings = <&kp ES_DOT>, <&kp ES_COMMA>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -31,7 +31,7 @@
         punto_doble: punto_doble {
             compatible = "zmk,behavior-mod-morph";
             label = "PUNTO_DOBLE";
-            bindings = <&kp ES_PERIOD>, <&kp ES_COLON>;
+            bindings = <&kp ES_COLON>, <&kp ES_SEMICOLON>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -93,7 +93,7 @@
             bindings = <
 &kp ES_DEG  &kp ES_CARET         &kp ES_ASTRK       &kp ES_PIPE                          &kp ES_DOLLAR             &kp ES_TILDE                   &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL          &kp ES_PLUS         &kp ES_AT             &kp ES_GRAVE
 &kp ESCAPE  &kp ES_SINGLE_QUOTE  &kp ES_LEFT_BRACE  &hold_tap_250 LCTRL ES_LEFT_BRACKET  &kp ES_LEFT_PARENTHESIS   &kp ES_SLASH                   &kp ES_BACKSLASH    &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACKET  &kp ES_RIGHT_BRACE  &kp ES_DOUBLE_QUOTES  &kp ENTER
-&none       &none                &none              &kp CAPSLOCK                         &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_PERCENT      &kp ES_HASH               &kp ES_AMPS           &none               &none                 &kp DELETE
+&none       &none                &none              &kp CAPSLOCK                         &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_AMPS         &kp ES_HASH               &kp ES_PERCENT        &none               &none                 &kp DELETE
                                                     &none                                &trans                    &kp SPACE                      &kp SPACE           &mo 3                     &none
             >;
         };
@@ -102,14 +102,14 @@
             bindings = <
 &kp N0      &kp N1        &kp N2        &kp N3            &kp N4          &kp N5    &kp N6  &kp N7          &kp N8            &kp N9        &kp N0        &none
 &kp ESCAPE  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none     &none   &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &kp ENTER
-&none       &kp F1        &kp F2        &kp F3            &kp F4          &kp F5    &kp F6  &kp F7          &kp F8            &kp F9        &kp F10       &tap_hold_150 DELETE BACKSPACE
+&none       &kp F1        &kp F2        &kp F3            &kp F4          &kp F5    &kp F6  &kp F7          &kp F8            &kp F9        &kp F10       &kp F11
                                         &none             &mo 3           &none     &none   &none           &none
             >;
         };
 
         Movimientos {
             bindings = <
-&bt BT_NXT  &kp K_MUTE         &kp K_MUTE2   &kp C_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none   &none      &none  &none
+&bt BT_NXT  &none         &none         &kp C_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none   &none      &none  &none
 &kp ESCAPE  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT     &none              &kp LEFT              &kp DOWN              &kp UP  &kp RIGHT  &none  &kp ENTER
 &bt BT_CLR  &none         &none         &none             &none              &none              &none                 &none                 &none   &none      &none  &tap_hold_150 DELETE BACKSPACE
                                         &none             &none              &none              &none                 &none                 &none
