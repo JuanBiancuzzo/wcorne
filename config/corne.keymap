@@ -94,7 +94,7 @@
 &kp ES_DEG  &kp ES_CARET         &kp ES_ASTRK       &kp ES_PIPE                          &kp ES_DOLLAR             &kp ES_TILDE                   &kp ES_EXCLAMATION  &kp ES_QUESTION           &kp ES_EQUAL          &kp ES_PLUS         &kp ES_AT             &kp ES_GRAVE
 &kp ESCAPE  &kp ES_SINGLE_QUOTE  &kp ES_LEFT_BRACE  &hold_tap_250 LCTRL ES_LEFT_BRACKET  &kp ES_LEFT_PARENTHESIS   &kp ES_SLASH                   &kp ES_BACKSLASH    &kp ES_RIGHT_PARENTHESIS  &kp ES_RIGHT_BRACKET  &kp ES_RIGHT_BRACE  &kp ES_DOUBLE_QUOTES  &kp ENTER
 &none       &none                &none              &kp CAPSLOCK                         &kp ES_INVERTED_QUESTION  &kp ES_INVERTED_EXCLAMATION    &kp ES_AMPS         &kp ES_HASH               &kp ES_PERCENT        &none               &none                 &kp DELETE
-                                                    &none                                &trans                    &kp SPACE                      &kp SPACE           &mo 3                     &none
+                                                    &trans                               &trans                    &kp SPACE                      &kp SPACE           &trans                    &trans
             >;
         };
 
@@ -103,19 +103,67 @@
 &kp N0      &kp N1        &kp N2        &kp N3            &kp N4          &kp N5    &kp N6  &kp N7          &kp N8            &kp N9        &kp N0        &none
 &kp ESCAPE  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none     &none   &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &kp ENTER
 &none       &kp F1        &kp F2        &kp F3            &kp F4          &kp F5    &kp F6  &kp F7          &kp F8            &kp F9        &kp F10       &kp F11
-                                        &none             &mo 3           &none     &none   &none           &none
+                                        &trans            &trans          &none     &none   &trans          &trans
             >;
         };
 
         Movimientos {
             bindings = <
-&bt BT_NXT  &none         &none         &kp C_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none   &none      &none  &soft_off
+&bt BT_NXT  &none         &none         &kp C_MUTE        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none   &none      &none  &to 4
 &none       &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT     &none              &kp LEFT              &kp DOWN              &kp UP  &kp RIGHT  &none  &none
 &bt BT_CLR  &none         &none         &none             &none              &none              &none                 &none                 &none   &none      &none  &none
                                         &none             &none              &none              &none                 &none                 &none
             >;
         };
+
+        Juego {
+            bindings = <
+&trans  &kp Q  &kp W  &kp E   &kp R   &kp T        &kp Y      &kp U   &kp I   &kp O   &kp P           &trans
+&trans  &kp A  &kp S  &kp D   &kp F   &kp G        &kp H      &kp J   &kp K   &kp L   &kp ES_N_TILDE  &trans
+&trans  &kp Z  &kp X  &kp C   &kp V   &kp B        &kp N      &kp M   &trans  &trans  &trans          &trans
+                      &trans  &tog 5  &kp SPACE    &kp SPACE  &tog 6  &trans
+            >;
+        };
+
+        Juego_numeros_izq {
+            bindings = <
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp Y      &kp U   &kp I   &kp O   &kp P           &trans
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0       &kp H      &kp J   &kp K   &kp L   &kp ES_N_TILDE  &trans
+&to 0   &trans  &trans  &trans  &trans  &trans       &kp N      &kp M   &trans  &trans  &trans          &trans
+                        &trans  &trans  &kp SPACE    &kp SPACE  &trans  &trans
+            >;
+        };
+
+        Juego_numeros_der {
+            bindings = <
+&trans  &kp Q  &kp W  &kp E   &kp R   &kp T        &kp N1     &kp N2  &kp N3  &kp N4  &kp N5  &trans
+&trans  &kp A  &kp S  &kp D   &kp F   &kp G        &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans  &kp Z  &kp X  &kp C   &kp V   &kp B        &trans     &trans  &trans  &trans  &trans  &to 0
+                      &trans  &trans  &kp SPACE    &kp SPACE  &trans  &trans
+            >;
+        };
+
+        Juego_numeros {
+            bindings = <
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N1     &kp N2  &kp N3  &kp N4  &kp N5  &trans
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0       &kp N6     &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&to 0   &trans  &trans  &trans  &trans  &trans       &trans     &trans  &trans  &trans  &trans  &to 0
+                        &trans  &trans  &kp SPACE    &kp SPACE  &trans  &trans
+            >;
+        };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Capa_movimiento {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+
+        Capa_juego_numeros {
+            if-layers = <5 6>;
+            then-layer = <7>;
+        };
+    };
 };
